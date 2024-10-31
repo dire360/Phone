@@ -1,5 +1,8 @@
+import java.util.Scanner; // Import Scanner class
+
 public class PhonebookManager {
     private PhonebookNode head;
+    private Scanner scanner = new Scanner(System.in);
 
     public PhonebookManager() {
         this.head = null;
@@ -7,7 +10,9 @@ public class PhonebookManager {
 
     // Add an entry to the end of the list
     public void addEntry(String name, String address, String city, String phoneNumber) {
-        PhonebookNode newNode = new PhonebookNode(name, address, city, phoneNumber);
+        String validatedPhoneNumber = validatePhoneNumber(phoneNumber); // Validate the phone number
+        PhonebookNode newNode = new PhonebookNode(name, address, city, validatedPhoneNumber);
+        
         if (head == null) {
             head = newNode;
         } else {
@@ -18,6 +23,7 @@ public class PhonebookManager {
             temp.next = newNode;
         }
     }
+    
 
     // Sort the list alphabetically by name
     public void sortEntries() {
@@ -94,4 +100,14 @@ public class PhonebookManager {
             temp = temp.next;
         }
     }
+
+    private String validatePhoneNumber(String phoneNumber) {
+        while (!phoneNumber.matches("\\d{10}")) { // Check if input has exactly 10 digits
+            System.out.println("Invalid phone number. Please enter a 10-digit phone number:");
+            
+            phoneNumber = scanner.nextLine(); // Prompt user for input again if invalid
+        }
+        return phoneNumber;
+    }
+    
 }
