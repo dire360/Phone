@@ -65,8 +65,17 @@ public class TestClass {
                     scanner.nextLine();  // Consume newline
                     System.out.print("Enter the name to delete: ");
                     String deleteName = scanner.nextLine();
-                    manager.deleteEntry(deleteName);
-                    System.out.println("Entry deleted.");
+
+                    // confirm deletion
+                    System.out.print(deleteName + " will be deleted, confirm: (y/n): ");
+                    String confirm = scanner.nextLine().toLowerCase();
+
+                    if (confirm.equals("y")) {
+                        manager.deleteEntry(deleteName);
+                        System.out.println("Deleted...");
+                    } else {
+                        System.out.println("Canceled");
+                    }
                     break;
                 case 's': // sort a-z
                     System.out.println("");
