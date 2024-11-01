@@ -1,3 +1,7 @@
+// Dylan Wilson
+// CS 145
+// Assignment 2 - PhoneBook
+
 public class PhonebookNode {
     String name;
     String address;
@@ -13,8 +17,15 @@ public class PhonebookNode {
         this.next = null;
     }
 
+    private String formatPhoneNumber(String phoneNumber) {
+        return String.format("(%s) %s-%s", 
+            phoneNumber.substring(0, 3), 
+            phoneNumber.substring(3, 6), 
+            phoneNumber.substring(6, 10));
+    }
+
     @Override
     public String toString() {
-        return name + " - " + address + ", " + city + " - " + phoneNumber;
+        return name + " - " + address + ", " + city + " - " + formatPhoneNumber(phoneNumber);
     }
 }

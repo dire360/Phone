@@ -1,3 +1,7 @@
+// Dylan Wilson
+// CS 145
+// Assignment 2 - PhoneBook
+
 import java.util.Scanner; // Import Scanner class
 
 public class PhonebookManager {
@@ -23,7 +27,6 @@ public class PhonebookManager {
             temp.next = newNode;
         }
     }
-    
 
     // Sort the list alphabetically by name
     public void sortEntries() {
@@ -103,8 +106,7 @@ public class PhonebookManager {
 
     private String validatePhoneNumber(String phoneNumber) {
         while (!phoneNumber.matches("\\d{10}")) { // Check if input has exactly 10 digits
-            System.out.println("Invalid phone number. Please enter a 10-digit phone number:");
-            
+            System.out.println("Invalid phone number. Please enter a 10-digit phone number:");           
             phoneNumber = scanner.nextLine(); // Prompt user for input again if invalid
         }
         return phoneNumber;
