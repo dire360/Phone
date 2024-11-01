@@ -25,7 +25,7 @@ public class TestClass {
             System.out.println("(p) Print the list");
             System.out.println("(e) Edit an entry");
             System.out.println("(d) Delete an entry");
-            System.out.println("(s) Sort the list, a-z");
+            System.out.println("(s) Sort list a-z");
             System.out.println("(q) Quit");
             System.out.print("Choose an option: ");
             input = scanner.next().charAt(0);
@@ -106,11 +106,11 @@ public class TestClass {
                     System.out.println("Exiting phonebook. Goodbye!");
                     break;
 
-                default: // if no cases are meet continue loop
+                default: // if no cases are meet "do"  again
                     System.out.println("Invalid option. Please try again.");
             }
-        } while (input != 'q'); // if not "q" continue loop
+        } while (input != 'q'); // while not "q" continue loop
 
-        scanner.close();
-    }
-}
+        scanner.close(); // close the scanner
+    } // end main method
+} // end public class
